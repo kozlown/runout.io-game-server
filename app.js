@@ -1,5 +1,8 @@
-import * as WebSocket from 'ws'
+import WebSocket from 'ws'
 import config from './config'
+import Interactions from './mainServerInteractions/Interactions'
+
+const interactions = new Interactions()
 
 const wss = new WebSocket.Server({
     perMessageDeflate: config.perMessageDeflate,

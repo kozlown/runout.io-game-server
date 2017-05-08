@@ -63,14 +63,14 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var buffer = __webpack_require__(20)
+var buffer = __webpack_require__(21)
 
 if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) {
   module.exports = buffer
@@ -138,7 +138,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 
 const safeBuffer = __webpack_require__(0);
-const zlib = __webpack_require__(22);
+const zlib = __webpack_require__(23);
 
 const bufferUtil = __webpack_require__(2);
 
@@ -629,6 +629,53 @@ module.exports = require("crypto");
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var config = {
+    perMessageDeflate: false,
+    port: 8000,
+    icon: 'icon.png',
+    name: 'Server Name',
+    mod: 'running',
+    map: 'map1',
+    mainServer: {
+        host: 'localhost',
+        port: 3000
+    }
+};
+
+exports.default = config;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*!
+ * ws: a node.js websocket client
+ * Copyright(c) 2011 Einar Otto Stangvik <einaros@gmail.com>
+ * MIT Licensed
+ */
+
+
+
+const WebSocket = __webpack_require__(12);
+
+WebSocket.Server = __webpack_require__(20);
+WebSocket.Receiver = __webpack_require__(10);
+WebSocket.Sender = __webpack_require__(11);
+
+module.exports = WebSocket;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var has = Object.prototype.hasOwnProperty;
 
 /**
@@ -768,7 +815,7 @@ module.exports = Ultron;
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -803,7 +850,7 @@ module.exports = {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -877,7 +924,7 @@ module.exports = { format, parse };
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -892,9 +939,9 @@ module.exports = { format, parse };
 const safeBuffer = __webpack_require__(0);
 
 const PerMessageDeflate = __webpack_require__(1);
-const isValidUTF8 = __webpack_require__(18);
+const isValidUTF8 = __webpack_require__(19);
 const bufferUtil = __webpack_require__(2);
-const ErrorCodes = __webpack_require__(6);
+const ErrorCodes = __webpack_require__(8);
 const constants = __webpack_require__(3);
 
 const Buffer = safeBuffer.Buffer;
@@ -1439,7 +1486,7 @@ function toArrayBuffer (buf) {
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1456,7 +1503,7 @@ const crypto = __webpack_require__(4);
 
 const PerMessageDeflate = __webpack_require__(1);
 const bufferUtil = __webpack_require__(2);
-const ErrorCodes = __webpack_require__(6);
+const ErrorCodes = __webpack_require__(8);
 
 const Buffer = safeBuffer.Buffer;
 
@@ -1849,7 +1896,7 @@ function viewToBuffer (view) {
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1861,19 +1908,19 @@ function viewToBuffer (view) {
 
 
 
-const EventEmitter = __webpack_require__(11);
+const EventEmitter = __webpack_require__(13);
 const crypto = __webpack_require__(4);
-const Ultron = __webpack_require__(5);
-const https = __webpack_require__(21);
-const http = __webpack_require__(12);
-const url = __webpack_require__(13);
+const Ultron = __webpack_require__(7);
+const https = __webpack_require__(22);
+const http = __webpack_require__(14);
+const url = __webpack_require__(15);
 
 const PerMessageDeflate = __webpack_require__(1);
-const EventTarget = __webpack_require__(17);
-const Extensions = __webpack_require__(7);
+const EventTarget = __webpack_require__(18);
+const Extensions = __webpack_require__(9);
 const constants = __webpack_require__(3);
-const Receiver = __webpack_require__(8);
-const Sender = __webpack_require__(9);
+const Receiver = __webpack_require__(10);
+const Sender = __webpack_require__(11);
 
 const protocolVersions = [8, 13];
 const closeTimeout = 30 * 1000; // Allow 30 seconds to terminate the connection cleanly.
@@ -2568,61 +2615,22 @@ function initAsClient (address, protocols, options) {
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("events");
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var config = {
-    perMessageDeflate: false,
-    port: 8000
-};
-
-exports.default = config;
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*!
- * ws: a node.js websocket client
- * Copyright(c) 2011 Einar Otto Stangvik <einaros@gmail.com>
- * MIT Licensed
- */
-
-
-
-const WebSocket = __webpack_require__(10);
-
-WebSocket.Server = __webpack_require__(19);
-WebSocket.Receiver = __webpack_require__(8);
-WebSocket.Sender = __webpack_require__(9);
-
-module.exports = WebSocket;
-
 
 /***/ }),
 /* 16 */
@@ -2631,19 +2639,124 @@ module.exports = WebSocket;
 "use strict";
 
 
-var _ws = __webpack_require__(15);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var WebSocket = _interopRequireWildcard(_ws);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _config = __webpack_require__(14);
+var _ws = __webpack_require__(6);
+
+var _ws2 = _interopRequireDefault(_ws);
+
+var _config = __webpack_require__(5);
 
 var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var wss = new WebSocket.Server({
+/**
+ * @class Interactions
+ * @description Interactions between server and main server
+ */
+var Interactions = function () {
+    /**
+     * @constructor
+     * @description constructor of a Interactions instance
+     */
+    function Interactions() {
+        _classCallCheck(this, Interactions);
+
+        this.ws = new _ws2.default('ws://' + _config2.default.mainServer.host + ':' + _config2.default.mainServer.port);
+
+        this.ws.on('open', this.sayHello.bind(this));
+        this.ws.on('message', this.handleMessage.bind(this));
+    }
+    /**
+     * @method sayHello
+     * @description say hello to the main server
+     */
+
+
+    _createClass(Interactions, [{
+        key: 'sayHello',
+        value: function sayHello() {
+            var sayHello = {
+                route: 'hello',
+                data: {
+                    port: _config2.default.port,
+                    icon: _config2.default.icon,
+                    name: _config2.default.name,
+                    mod: _config2.default.mod,
+                    map: _config2.default.map,
+                    playersNb: 0
+                }
+            };
+            var sayHelloString = JSON.stringify(sayHello);
+            this.ws.send(sayHelloString);
+        }
+        /**
+         * @method handleMessage
+         * @description handle any message from main server
+         * @param {String} data data received from main server
+         */
+
+    }, {
+        key: 'handleMessage',
+        value: function handleMessage(data) {
+            var dataObject = JSON.parse(data);
+            switch (dataObject.route) {
+                case 'hello':
+                    this.handleHello(dataObject);
+                    break;
+                default:
+                    break;
+            }
+        }
+        /**
+         * @method handleHello
+         * @description handle hello route response from main server
+         * @param {Object} data data received from the server
+         */
+
+    }, {
+        key: 'handleHello',
+        value: function handleHello(data) {
+            console.info(data);
+        }
+    }]);
+
+    return Interactions;
+}();
+
+exports.default = Interactions;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _ws = __webpack_require__(6);
+
+var _ws2 = _interopRequireDefault(_ws);
+
+var _config = __webpack_require__(5);
+
+var _config2 = _interopRequireDefault(_config);
+
+var _Interactions = __webpack_require__(16);
+
+var _Interactions2 = _interopRequireDefault(_Interactions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var interactions = new _Interactions2.default();
+
+var wss = new _ws2.default.Server({
     perMessageDeflate: _config2.default.perMessageDeflate,
     port: _config2.default.port
 });
@@ -2659,7 +2772,7 @@ wss.on('connection', function (ws) {
 console.info('Server has started on port ' + _config2.default.port);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2821,7 +2934,7 @@ module.exports = EventTarget;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2845,7 +2958,7 @@ try {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2858,16 +2971,16 @@ try {
 
 
 const safeBuffer = __webpack_require__(0);
-const EventEmitter = __webpack_require__(11);
+const EventEmitter = __webpack_require__(13);
 const crypto = __webpack_require__(4);
-const Ultron = __webpack_require__(5);
-const http = __webpack_require__(12);
-const url = __webpack_require__(13);
+const Ultron = __webpack_require__(7);
+const http = __webpack_require__(14);
+const url = __webpack_require__(15);
 
 const PerMessageDeflate = __webpack_require__(1);
-const Extensions = __webpack_require__(7);
+const Extensions = __webpack_require__(9);
 const constants = __webpack_require__(3);
-const WebSocket = __webpack_require__(10);
+const WebSocket = __webpack_require__(12);
 
 const Buffer = safeBuffer.Buffer;
 
@@ -3188,19 +3301,19 @@ function abortConnection (socket, code, message) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("buffer");
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("https");
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("zlib");
