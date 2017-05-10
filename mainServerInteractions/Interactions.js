@@ -1,4 +1,6 @@
 import WebSocket from 'ws'
+import FileReader from 'filereader'
+import File from 'File'
 import config from '../config'
 
 /**
@@ -21,19 +23,24 @@ class Interactions {
      * @description say hello to the main server
      */
     sayHello() {
-        const sayHello = {
-            route: 'hello',
-            data: {
-                port: config.port,
-                icon: config.icon,
-                name: config.name,
-                mod: config.mod,
-                map: config.map,
-                playersNb: 0
+        const fileReader = new FileReader()
+        fileReader.on('data', (data) => {
+            const icon = data
+            const sayHello = {
+                route: 'hello',
+                data: {
+                    port: config.port,
+                    icon,
+                    name: config.name,
+                    mod: config.mod,
+                    map: config.map,
+                    playersNb: 0
+                }
             }
-        }
-        const sayHelloString = JSON.stringify(sayHello)
-        this.ws.send(sayHelloString)
+            const sayHelloString = JSON.stringify(sayHello)
+            this.ws.send(sayHelloString)
+        })
+        fileReader.readAsDataURL(new File('./icon.png'))
     }
     /**
      * @method handleMessage
