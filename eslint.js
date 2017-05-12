@@ -3,7 +3,7 @@ module.exports = {
         'no-param-reassign': 'off',
         indent: [2, 4, { "SwitchCase": 1 }],
         semi: [2, 'never'],
-        'no-console': ['error', { allow: ['warn', 'error', 'debug', 'info'] }],
+        'no-console': ['error', { allow: ['warn', 'error', 'debug', 'info', 'server', 'player'] }],
         'comma-dangle': ['error', 'never']
     },
     extends: 'airbnb-base',

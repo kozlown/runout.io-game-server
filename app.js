@@ -1,20 +1,29 @@
 import WebSocket from 'ws'
+import debug from 'debug'
 import config from './config'
-import Interactions from './mainServerInteractions/Interactions'
+import router from './playersInteractions/router'
+import MainServerInteractions from './mainServerInteractions/MainServerInteractions'
 
-const interactions = new Interactions()
+// console customization with debugging purpose
+console.info = debug('info')
+console.server = debug('server')
+console.player = debug('player')
+console.error = debug('error')
+
+// main server interactions
+const mainServerInteractions = new MainServerInteractions()
 
 const wss = new WebSocket.Server({
     perMessageDeflate: config.perMessageDeflate,
     port: config.port
 })
 
+const players = []
+
 wss.on('connection', (ws) => {
     ws.on('message', (message) => {
-        console.info('received: %s', message)
+        router(ws, message, players)
     })
-
-    ws.send('something')
 })
 
 console.info(`Server has started on port ${config.port}`)

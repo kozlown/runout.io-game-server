@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch",
-    "run": "sudo nodemon bin/bundle"
+    "run": "sudo DEBUG=\"server|player|info|error\" nodemon bin/bundle"
   },
   "repository": {
     "type": "git",
@@ -32,12 +32,14 @@
     "babel-preset-env": "^1.4.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "debug": "^2.6.6",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0",
     "filereader": "^0.10.3",
     "lodash": "^4.17.4",
     "nodemon": "^1.11.0",
+    "request": "^2.81.0",
     "webpack": "^2.4.1",
     "ws": "^2.3.1"
   }
