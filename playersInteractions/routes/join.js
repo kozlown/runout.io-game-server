@@ -19,6 +19,7 @@ const join = (ws, messageObject, players) => {
                     error
                 }
                 ws.send(JSON.stringify(hasJoinedErrorMessage))
+                console.error('Someone couldn\'t join the game %O', error)
                 return
             }
             const bodyObject = JSON.parse(body)
@@ -33,18 +34,21 @@ const join = (ws, messageObject, players) => {
                 status: 'ok'
             }
             ws.send(JSON.stringify(hasJoinedMessage))
+            console.player(`${pseudo} has joined the game !`)
         })
     } else {
+        const pseudo = 'Guest'
         // if it's a guest
         players.push({
             ws,
-            pseudo: 'Guest'
+            pseudo
         })
         const hasJoinedMessage = {
             route: 'has joined',
             status: 'ok'
         }
         ws.json(JSON.stringify(hasJoinedMessage))
+        console.player(`${pseudo} has joined the game !`)
     }
 }
 
